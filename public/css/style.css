@@ -37,11 +37,11 @@ form.login{
 }
 
 button{
-    background: #D7D2D2;
+    background: #998362;
     border: 2px solid #000000;
     border-radius: 36px;
-    font-family: 'Courier New';
-    font-size: 24px;
+    font-family:'Gill Sans';
+    font-size: 30px;
     
     color: #000000;
 
@@ -50,6 +50,14 @@ button{
     margin: 0.5em;
     line-height: 1.5em;
 }
+
+button:hover{
+    cursor: pointer;
+    border-radius: 18px;
+    background-color: #AD8540;
+}
+
+
 
 input{
     background-color: transparent;
@@ -62,9 +70,11 @@ input{
 }
 
 .welcome-message{
-    font-family: 'Courier New';
-    font-size: 27px;
+    font-family:'Gill Sans';
+    font-size: 40px;
 }
+
+
 
 @media only screen and (max-device-width: 420px){
     .container-login-page{
