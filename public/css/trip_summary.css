@@ -1,0 +1,118 @@
+.container-trip-summary-page{
+    width: 100vw;
+    height: 100vh;
+    background: #AD8540;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-items:center;
+    align-items:center;
+}
+
+
+.logo{
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+.dropdown-button{
+    grid-column: 3/4;
+    grid-row: 1/2;
+
+    cursor: pointer;
+    width: 100%;
+}
+
+.trip-dropdown-menu{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: fixed;
+    background: #D7D2D2;
+    border: 2px solid #000000;
+    border-radius: 36px;
+    font-family: 'Courier New';
+    font-size: 17px;
+    color: #000000;
+
+
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a{
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover{
+    font-weight: bolder;
+}
+
+.trip-dropdown-menu:hover .dropdown-content{
+    display: block;
+}
+
+.trip-dropdown-menu:hover .dropdown-button{
+    background-color: #cc9a37;
+    font-weight: bolder;
+}
+
+
+.back-button{
+    grid-column: 4/5;
+    grid-row: 1/2;
+
+    width: 100%;
+
+}
+
+.back-button:hover > button{
+    background-color: #cc9a37;
+    font-weight: bolder;
+
+
+}
+
+
+.total{
+    grid-column: 4/5;
+    grid-row: 2/3;
+
+    width: 200%;
+}
+
+.total > button{
+    height: 8vh;
+}
+
+.total:hover > button{
+    background-color: #cc9a37;
+    font-weight: bolder;
+}
+
+.text-message{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-family: 'Courier New';
+    font-size: 17px;
+    margin-top: 60px;
+}
+
+
+
+.choices > div > button{
+    position: relative;
+    display: inline-block;
+}
+
+
