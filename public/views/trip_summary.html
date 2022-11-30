@@ -1,68 +1,122 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/trip_summary.css">
     <script src="https://kit.fontawesome.com/e076f466c1.js" crossorigin="anonymous"></script>
     <title>TRIP SUMMARY</title>
 </head>
 <body>
     <div class="container-trip-summary-page">
-        <main class="main"> 
+        <nav>
             <div class="logo">
                 <img src="../img/logo.svg">
             </div>
+            <ul>
+                <li>              
+                    <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Add trip</a>
+                </li>
+                <li>
+                    
+                    <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+                </li>
+                <li>
+                    <div class="trip-dropdown-menu">
+                        <div class="nav-button"><i class="fa-solid fa-caret-down"></i> Select trip</div>
+                        <div class="dropdown-content">
+                            <a href="#">Berlin+data</a>
+                            <a href="#">Berlin+data</a>
+                            <a href="#">Berlin+data</a>
+                            <a href="#">Berlin+data</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main> 
+            <section class="trips">
+                <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/sztokholm.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Sztokholm</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="trip-dropdown-menu">
-                <button class="dropdown-button"><i class="fa-solid fa-caret-down"></i> Select trip</button>
-                <div class="dropdown-content">
-                    <a href="#">Berlin+data</a>
-                    <a href="#">Berlin+data</a>
-                    <a href="#">Berlin+data</a>
-                    <a href="#">Berlin+data</a>
-                </div>
-            </div>
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/bali.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Bali</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="back-button">
-                <button>Back</button>
-            </div>
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/praga.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Praga</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="total">
-                <button>
-                    <output name="result"><i class="fa-solid fa-sack-dollar"></i>  Total</output>
-                </button>
-            </div>
-            <div class="text-message">
-                <h1> Add new expense: </h1>
-            </div>
-            
-            <div class="choices">
-                <div class="country">
-                    <button class="dropdown-button"><i class="fa-regular fa-flag"></i>  Country  <i class="fa-solid fa-caret-down"></i></button>
-                    <div class="dropdown-content">
-                        <a href="#">Germany</a>
-                        <a href="#">Russia</a>
-                        <a href="#">Austria</a>
-                        <a href="#">France</a>
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/paris.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Paryż</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/warszawa.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Warszawa</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
                     </div>
                 </div>
-    
-                <div class="category">
-    
-                </div>
-                <div class="currency">
-    
-                </div>
-
-            </div>
-
-            <div class="date">
-
-            </div>
-            <div class="notes">
-
-            </div>
-            <div class="save">
-
+                  
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="../img/uploads/havana.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Havana</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
+            </section>
+            <div class="all-trips">
+                <a href="#">See your all trips </a>
             </div>
         </main>
     </div>
