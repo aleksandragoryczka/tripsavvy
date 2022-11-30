@@ -1,12 +1,18 @@
 <?php
 
 require_once 'src/controllers/DefaultController.php';
+require_once 'src/controllers/SecurityController.php';
 
 class Routing{
     public static $routes; // tablica przechowyjaca url i sciezke kontorlera, ktory zostanie otwarty
 
     //metoda, ktora pozowli wstawic do tablicy $routes wstawic odpoweidni kontorler przydzielony do odpoweidniego urla
     public static function get($url, $controller){
+        self::$routes[$url] = $controller;
+    }
+
+
+    public static function post($url, $controller){
         self::$routes[$url] = $controller;
     }
 

@@ -11,12 +11,20 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-container">
-            <form class="login">
+            <form class="login" action="login" method="POST">
+                <div class="message">
+                    <?php if(isset($messages)){
+                        foreach ($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <p class="welcome-message"><strong>Welcome back traveller!</strong></p>
                 <input name="email" type="text" placeholder="Enter e-mail address" required>
                 <input name="password" type="password" placeholder="Enter password" required>
-                <button class="button">Log in</button>
-                <button class="button">Register</button>
+                <button type="submit">Log in</button>
+                <button>Register</button>
             </form>
         </div>
     </div>
