@@ -175,9 +175,8 @@ nav > ul > li > a{
 ul{
     list-style-type: none;
     height: 100%;
-    margin: auto;
     padding: 0;
-    width: calc(100% - 10px);
+    width: calc(100% - 40px);
     position: relative;
 }
 
@@ -193,13 +192,8 @@ li:last-child{
 
 
 
-.trip-dropdown-menu > button{
-    width: 100%;
-}
-
-
-
 .trip-dropdown-menu{
+    width: 100%;
     position: relative;
     display: inline-block;
 }
@@ -289,6 +283,7 @@ main{
   }
   
   .trip-flip-card-front {
+      /*TODO: CO JEŚLI NIE MA ZDJĘCIA*/
     color: black;
 
   }

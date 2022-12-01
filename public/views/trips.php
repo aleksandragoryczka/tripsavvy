@@ -15,7 +15,6 @@
                     <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Add trip</a>
                 </li>
                 <li>
-                    
                     <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Map</a>
                 </li>
                 <li>
