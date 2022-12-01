@@ -177,7 +177,7 @@ ul{
     height: 100%;
     margin: auto;
     padding: 0;
-    width: calc(100% - 10px);
+    width: calc(100% - 40px);
     position: relative;
 }
 
