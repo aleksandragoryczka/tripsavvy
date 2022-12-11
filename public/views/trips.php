@@ -40,12 +40,12 @@
                 <div class="trip-flip-card">
                     <div class="trip-flip-card-inner">
                       <div class="trip-flip-card-front">
-                        <img src="public/img/uploads/sztokholm.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                        <img src="public/uploads/<?= $trip->getImage() ?>" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
                       </div>
                       <div class="trip-flip-card-back">
-                        <h1>Sztokholm</h1>
-                        <p>data</p>
-                        <button>More info</button>
+                        <h1><?= $trip->getTitle() ?></h1>
+                        <p><?= $trip->getStartDate() ." - ". $trip->getEndDate() ?></p>
+                        <button>Więcej informacji</button>
                       </div>
                     </div>
                   </div>

@@ -77,7 +77,6 @@ input{
     border-bottom: 2px solid black;
     font-size: 18px;
     font-family:'Gill Sans';
-
     margin: 1em;
     width: 50%;
 }
@@ -190,13 +189,6 @@ li:last-child{
     bottom: 0;
     width: 100%
 }
-
-
-
-.trip-dropdown-menu > button{
-    width: 100%;
-}
-
 
 
 .trip-dropdown-menu{
@@ -317,6 +309,53 @@ main{
     padding-right: 100px;
 }
 
+/*ADD-NEW-TRIP*/
 
-/*REGISTER*/
+.add-trip{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+
+}
+
+.add-trip > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-trip .drop-container {
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+    background: #998362;
+    border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+    color: #222;
+}
+
+.drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+}
+
 
