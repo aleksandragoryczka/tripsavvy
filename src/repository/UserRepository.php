@@ -9,7 +9,7 @@ class UserRepository extends Repository{
     {
         $stmt = $this->database->connect()->prepare("
             SELECT * FROM users u LEFT JOIN users_details ud
-                     ON u.id_user_details = ud.id WHERE email = :email
+                     ON u.id_users_details = ud.id WHERE email = :email
             ");
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -23,7 +23,7 @@ class UserRepository extends Repository{
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname'],
+            $user['surname']
         );
     }
 
@@ -40,7 +40,7 @@ class UserRepository extends Repository{
         ]);
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO users (email, password, id_user_details)
+            INSERT INTO users (email, password, id_users_details)
             VALUES (?, ?, ?)
         ');
 
@@ -54,7 +54,7 @@ class UserRepository extends Repository{
     public function getUserDetailsId(User $user): int
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM users_details WHERE name = :name AND surname = :surname');
+            SELECT * FROM public.users_details WHERE name = :name AND surname = :surname');
 
         $name = $user->getName();
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);

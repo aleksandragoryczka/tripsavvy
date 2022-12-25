@@ -12,7 +12,15 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="register-container">
-            <form class="register">
+            <form class="register" action="register" method="POST">
+                <div class="message">
+                    <?php if(isset($messages)){
+                        foreach ($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
                 <h1>Register</h1>
                 <h2>Please fill in this form to create an account:</h2>
                 <input name="email" type="text" placeholder="Adres e-mail" required>

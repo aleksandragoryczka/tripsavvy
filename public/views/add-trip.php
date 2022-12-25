@@ -11,34 +11,29 @@
                 <img src="public/img/logo.svg">
             </div>
             <ul>
-                <li>              
-                    <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Add trip</a>
+                <li>
+                    <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
                 </li>
                 <li>
-                    
-                    <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Map</a>
+
+                    <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
                 </li>
                 <li>
-                    <div class="trip-dropdown-menu">
-                        <div class="nav-button"><i class="fa-solid fa-caret-down"></i> Select trip</div>
-                        <div class="dropdown-content">
-                            <a href="#">Berlin+data</a>
-                            <a href="#">Berlin+data</a>
-                            <a href="#">Berlin+data</a>
-                            <a href="#">Berlin+data</a>
-                        </div>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input placeholder="Wyszukaj celu podróży">
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a>
+                    <a href="#" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
                 </li>
             </ul>
         </nav>
         
         <main> 
             <section class="add-trip">
-                <h1>DODAJ PODRÓŻ</h1>
                 <form action="addTrip" method="POST" ENCTYPE="multipart/form-data">
+                    <h1>DODAJ PODRÓŻ</h1>
                     <?php if(isset($messages)){
                         foreach ($messages as $message){
                             echo $message;

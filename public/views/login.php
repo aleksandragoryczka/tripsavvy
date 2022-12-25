@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>LOGIN PAGE</title>
+    <title>LOGOWANIE</title>
 </head>
 <body>
     <div class="container"> 
@@ -20,11 +20,11 @@
                     }
                     ?>
                 </div>
-                <p class="welcome-message"><strong>Welcome back traveller!</strong></p>
-                <input name="email" type="text" placeholder="Enter e-mail address" required>
-                <input name="password" type="password" placeholder="Enter password" required>
-                <button type="submit">Log in</button>
-                <button>Register</button>
+                <p class="welcome-message"><strong>Witaj ponownie podróżniku!</strong></p>
+                <input name="email" type="text" placeholder="Podaj adres e-mail" required>
+                <input name="password" type="password" placeholder="Podaj hasło" required>
+                <button type="submit">Zaloguj się</button>
+                <button>Zarejestruj się</button>
             </form>
         </div>
     </div>

@@ -47,12 +47,11 @@ class TripRepository extends Repository{
         ]);
     }
 
-
-    public function getAllTrips(): array{
+    public function getAllTrips(){
         $result = [];
 
         $stmt = $this->database->connect()->prepare("
-            SELECT * from trips
+            SELECT * from public.trips
         ");
 
         $stmt->execute();
@@ -67,8 +66,21 @@ class TripRepository extends Repository{
                 $trip["target_currency"]
             );
         }
-
         return $result;
+    }
+
+    public function getProjectByTitle(string $searchString)
+    {
+        $searchString = "%".strtolower($searchString)."%";
+
+        $stmt = $this->database->connect()->prepare("
+            SELECT * from public.trips WHERE LOWER(title) LIKE :search
+        ");
+
+        $stmt->bindParam(":search", $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

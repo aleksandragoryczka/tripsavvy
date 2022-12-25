@@ -10,6 +10,6 @@ Routing::get('trips', 'TripsController');
 Routing::post('login', 'SecurityController');
 Routing::post('addTrip', 'TripsController');
 Routing::post('register', 'SecurityController');
-//TODO: czy na pewno routing ok?
+Routing::post('search', 'TripsController');
 
 Routing::run($path);

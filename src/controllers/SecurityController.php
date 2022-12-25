@@ -21,7 +21,7 @@ class SecurityController extends AppController
         }
 
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = md5($_POST["password"]);
 
         $user = $this->userRepository->getUser($email);
 
@@ -50,16 +50,17 @@ class SecurityController extends AppController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirmedPassword = $_POST['confirmedPassword'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Podaj poprawne hasło!']]);
         }
 
-        $user = new User($email, md5($password));
+        $user = new User($email, md5($password), $name, $surname);
 
         $this->userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['Rejestracja zakończona sukcesem!']]);
-
     }
 }
