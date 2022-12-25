@@ -7,7 +7,7 @@ body{
 .container{
     width: 100vw;
     height: 100vh;
-    background: #AD8540;
+    background: #719192;
     
 
     display: flex;
@@ -42,21 +42,20 @@ form.login, form.register{
     width: 80%;
     height: 60vh;
 
-    background: rgba(215, 210, 210, 0.4);
-    border: 3px solid #000000;
+    background:  #dfcdc3;
+    border: 3px solid #3c4245;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 72px;
 }
 
 button, .nav-button{
-    background: #998362;
-    border: 2px solid #000000;
+    background: #5f6769;
+    border: 2px solid #3c4245;
     border-radius: 36px;
     font-family:'Gill Sans';
     font-size: 30px;
     
-    color: #000000;
-
+    color: #111111;
     width: 50%;
     text-align:center;
     margin: 0.5em;
@@ -66,7 +65,7 @@ button, .nav-button{
 button:hover, .nav-button:hover{
     cursor: pointer;
     border-radius: 19px;
-    background-color: #564324;
+    background-color: #c7b198;
 }
 
 
@@ -83,6 +82,7 @@ input{
 
 .welcome-message{
     font-family:'Gill Sans';
+    color: #111111;
     font-size: 40px;
     text-align: center;
 }
@@ -141,7 +141,7 @@ input{
 nav{
     width: 20vw;
     height: 100%;
-    background: #AD8540;
+    background: #719192;
 
     display: flex;
     flex-direction: column;
@@ -163,7 +163,7 @@ nav > ul > li > a{
 
 .nav-button{
     font-size: 29px;
-    
+
     color: #000000;
 
     width: 100%;
@@ -231,10 +231,8 @@ li:last-child{
     background-color: #564324;
 }
 
-
-
 main{
-    background-color: #dacbb2;
+    background-color: #dfcdc3;
 
     height: 100vh;
     width: 80vw;
@@ -250,10 +248,10 @@ main{
 
 
 .trip-flip-card {
-    background-color:#998362;
+    background-color:#5f6769;
     width: 300px;
     height: 300px;
-    border: 2px solid #000000;
+    border: 2px solid #3c4245;
     border-radius: 36px;
     perspective: 1000px;
   }
@@ -286,7 +284,7 @@ main{
   }
   
   .trip-flip-card-back {
-    background-color:#AD8540;
+    background-color:#ffcbcb;
     border: 2px solid #000000;
     border-radius: 36px;
     color: black;
@@ -342,7 +340,7 @@ main{
 }
 
 .drop-container:hover {
-    background: #998362;
+    background: #c7b198;
     border-color: #111;
 }
 
