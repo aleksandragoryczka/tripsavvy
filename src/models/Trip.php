@@ -5,14 +5,28 @@ class Trip{
     private $start_date;
     private $end_date;
     private $image;
+    private $target_currency;
 
-    public function __construct($title, $start_date, $end_date, $image)
+    public function __construct($title, $start_date, $end_date, $image, $target_currency)
     {
         $this->title = $title;
         $this->start_date = $start_date;
         $this->end_date = $end_date;
         $this->image = $image;
+        $this->target_currency=$target_currency;
     }
+
+    public function getTargetCurrency()
+    {
+        return $this->target_currency;
+    }
+
+    public function setTargetCurrency($target_currency): void
+    {
+        $this->target_currency = $target_currency;
+    }
+
+
 
     public function getTitle() :string
     {

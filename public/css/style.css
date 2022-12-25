@@ -279,15 +279,14 @@ main{
   }
   
   .trip-flip-card-front {
-    color: black;
-
+    color: #5f6769;
   }
   
   .trip-flip-card-back {
-    background-color:#ffcbcb;
-    border: 2px solid #000000;
+    background-color:#c7b198;
+      border: 2px solid #3c4245;
     border-radius: 36px;
-    color: black;
+    color: #3c4245;
     font-family:'Gill Sans';
     text-align: center;
     transform: rotateY(180deg);

@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Trip.php';
+require_once __DIR__.'/../repository/TripRepository.php';
 
 class AddTripController extends AppController
 {
@@ -10,6 +11,13 @@ class AddTripController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $tripRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->tripRepository = new TripRepository();
+    }
 
     public function addTrip(){
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
@@ -19,7 +27,9 @@ class AddTripController extends AppController
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            $trip = new Trip($_POST['title'], $_POST["start-date"], $_POST["end-date"], $_FILES['file']['name']);
+            //TODO: zmienić sposób pobierania target_currency
+            $trip = new Trip($_POST['title'], $_POST["start-date"], $_POST["end-date"], $_FILES['file']['name'], "PLN");
+            $this->tripRepository->addTrip($trip);
 
             return $this->render("trips", ["messages" => $this->messages, 'trip'=> $trip]);
         }
