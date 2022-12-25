@@ -6,10 +6,16 @@ require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
-    public function login(){
-        //stworzenie fikcyjnego uzytkownika bo baza jeszcze nie podopieta
-        $userRepository = new UserRepository();
+    private $userRepository;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+    }
+
+
+    public function login(){
         if(!$this->isPost()){
             return $this->render('login');
         }
@@ -17,23 +23,43 @@ class SecurityController extends AppController
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $user = $userRepository->getUser($email);
+        $user = $this->userRepository->getUser($email);
 
         if(!$user){
-            return $this->render('login', ['messages'=> ['User not exists!']]);
+            return $this->render('login', ['messages'=> ['Taki użytkownik nie istnieje!']]);
         }
 
         if($user->getEmail() !== $email){
-            return $this->render('login', ['messages'=> ['User with this email not exists!']]);
+            return $this->render('login', ['messages'=> ['Użytkownik z tym adresem e-mail nie istnieje!']]);
         }
 
         if($user->getPassword() !== $password){
-            return $this->render('login', ['messages'=> ['Wrong password!']]);
+            return $this->render('login', ['messages'=> ['Niepoprawne hasło!']]);
         }
-
-        // return $this->render('trips');
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/trips");
+    }
+
+
+    public function register(){
+        if(!$this->isPost()){
+            return $this->render('register');
+        }
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmedPassword = $_POST['confirmedPassword'];
+
+        if ($password !== $confirmedPassword) {
+            return $this->render('register', ['messages' => ['Podaj poprawne hasło!']]);
+        }
+
+        $user = new User($email, md5($password));
+
+        $this->userRepository->addUser($user);
+
+        return $this->render('login', ['messages' => ['Rejestracja zakończona sukcesem!']]);
+
     }
 }

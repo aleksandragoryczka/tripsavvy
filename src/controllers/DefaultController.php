@@ -13,7 +13,4 @@ class DefaultController extends AppController{
         $this->render('register');
     }
 
-    public function trips(){
-        $this->render('trips');
-    }
 }

@@ -1,7 +1,5 @@
 body{
     margin: 0;
-    
-
 }
 
 .container{
@@ -17,8 +15,6 @@ body{
 
     min-width: 870px;
 }
-
-
 
 .logo > img{
     width: 80%;
@@ -41,25 +37,34 @@ form.login, form.register{
     align-items: center;
     width: 80%;
     height: 60vh;
-
     background:  #dfcdc3;
     border: 3px solid #3c4245;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 72px;
 }
 
-button, .nav-button{
+.no-valid{
+    border: 3px solid darkred;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em darkred;
+    outline: none;
+}
+
+button, .nav-button, .search-bar{
     background: #5f6769;
     border: 2px solid #3c4245;
     border-radius: 36px;
     font-family:'Gill Sans';
     font-size: 30px;
-    
+    width: 100%;
     color: #111111;
-    width: 50%;
     text-align:center;
     margin: 0.5em;
-    line-height: 1.5em;
+    line-height: 1.5em
+}
+
+button{
+    width: 60%;
 }
 
 button:hover, .nav-button:hover{
@@ -79,6 +84,7 @@ input{
     margin: 1em;
     width: 50%;
 }
+
 
 .welcome-message{
     font-family:'Gill Sans';
@@ -146,11 +152,16 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding-right: 20px;
 }
+
+nav > .logo{
+    width: 90%;
+}
+
 
 nav > .logo > img{
     width: 95%;
-    margin-left: 0;
     margin-top: 20px;
 }
 
@@ -158,10 +169,6 @@ nav > ul > li > a{
     text-decoration: none;
     display: inline-block;
     line-height: 2em;
-}
-
-
-.nav-button{
     font-size: 29px;
 
     color: #000000;
@@ -170,6 +177,7 @@ nav > ul > li > a{
     text-align:center;
     line-height: 1.5em;
 }
+
 
 ul{
     list-style-type: none;

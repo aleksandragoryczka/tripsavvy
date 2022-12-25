@@ -2,7 +2,7 @@
 
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
-require_once 'src/controllers/AddTripController.php';
+require_once 'src/controllers/TripsController.php';
 
 class Routing{
     public static $routes; // tablica przechowyjaca url i sciezke kontorlera, ktory zostanie otwarty

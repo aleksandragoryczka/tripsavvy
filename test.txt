@@ -1,0 +1,64 @@
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="public/img/uploads/bali.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Bali</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="public/img/uploads/praga.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Praga</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="public/img/uploads/paris.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Paryż</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="public/img/uploads/warszawa.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Warszawa</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                </div>
+
+                  <div class="trip-flip-card">
+                    <div class="trip-flip-card-inner">
+                      <div class="trip-flip-card-front">
+                        <img src="public/img/uploads/havana.jpg" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                      </div>
+                      <div class="trip-flip-card-back">
+                        <h1>Havana</h1>
+                        <p>data</p>
+                        <button>More info</button>
+                      </div>
+                    </div>
+                  </div>
