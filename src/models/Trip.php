@@ -6,14 +6,16 @@ class Trip{
     private $end_date;
     private $image;
     private $target_currency;
+    private $id;
 
-    public function __construct($title, $start_date, $end_date, $image, $target_currency)
+    public function __construct($title, $start_date, $end_date, $image, $target_currency, $id = null)
     {
         $this->title = $title;
         $this->start_date = $start_date;
         $this->end_date = $end_date;
         $this->image = $image;
         $this->target_currency=$target_currency;
+        $this->id=$id;
     }
 
     public function getTargetCurrency()
@@ -71,6 +73,11 @@ class Trip{
     public function setImage(string $image)
     {
         $this->image = $image;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
 

@@ -31,7 +31,7 @@
                 <button class="button">Zarejestruj się</button>
             </form>
             <div class="container-signin">
-                <p>Masz już konto? <a href="#">Zaloguj się</a></p>
+                <p>Masz już konto? <a href="login">Zaloguj się</a></p>
             </div>
         </div>
     </div>

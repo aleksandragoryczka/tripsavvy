@@ -10,25 +10,17 @@ function createTrip(trip) {
     image.src = `/public/uploads/${trip.image}`;
     const title = clone.querySelector("h1");
     title.innerHTML = trip.title;
-
     const dates = clone.querySelector("#dates")
     const startDate = trip.start_date;
     const endDate = trip.end_date;
     dates.innerText = startDate + " - " + endDate;
-
-    console.log(dates);
-
-    //const startDate = clone.querySelector("#start-date");
-    //startDate.innerText = trip.start_date;
-    //const endDate = clone.querySelector("#end-date");
-    //endDate.innerText = trip.end_date;
 
     tripsContainer.appendChild(clone);
 }
 
 function loadTrips(trips) {
     trips.forEach(trip => {
-        console.log(trip);
+        console.log(trip)
         createTrip(trip);
     });
 }
@@ -44,7 +36,7 @@ search.addEventListener("keyup", function (event){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
         }).then(function(response){
             return response.json();
         }).then(function (trips){

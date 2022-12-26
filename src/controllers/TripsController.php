@@ -54,7 +54,7 @@ class TripsController extends AppController
             header('Content-type: application/json');
             http_response_code(200);
 
-            echo json_encode($this->tripRepository->getProjectByTitle($decoded['search']));
+            echo json_encode($this->tripRepository->getTripByTitle($decoded['search']));
         }
     }
 

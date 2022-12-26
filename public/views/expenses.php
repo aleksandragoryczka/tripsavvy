@@ -6,6 +6,7 @@
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>PODRÓŻE</title>
 </head>
+
 <body>
     <div class="container-trip-summary-page">
         <nav>
@@ -18,7 +19,7 @@
                 <li>
                     <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
                 </li>
-                <li>              
+                <li>
                     <a href="addTrip" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
                 </li>
                 <li>
@@ -37,24 +38,28 @@
             </ul>
         </nav>
         
-        <main> 
-            <section class="trips">
+        <main>
+            <header>
+                <div class="trip-expenses-header">
+
+                </div>
+            </header>
+
+            <section class="expenses">
                 <?php
-                $tmp = new TripRepository();
-                $trips = $tmp->getAllTrips();
-                foreach($trips as $trip): ?>
-                    <div class="trip-flip-card" id=<?= $trip->getId(); ?>>
-                        <div class="trip-flip-card-inner">
-                          <div class="trip-flip-card-front">
-                            <img src="public/uploads/<?= $trip->getImage(); ?>" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
-                          </div>
-                          <div class="trip-flip-card-back">
-                            <h1><?= ($trip->getTitle()); ?></h1>
-                            <p><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
-                              <button id="more-info">Więcej informacji</button>
-                          </div>
-                        </div>
+                $tmp = new ExpenseRepository();
+                $expenses = $tmp->getAllTripExpenses(1);
+                foreach($expenses as $expense): ?>
+                    <div class="expense-card">
+                        <p><strong>Państwo: </strong><?= ($expense->getCountry());  ?></p>
+                        <p><strong>Kwota: </strong><?= ($expense->getAmount())." ".($expense->getExpenseCurrency());;  ?> </p>
+                        <p><strong>Kategoria: </strong><?= ($expense->getCategory());  ?></p>
+                        <p><strong>Data wydatku: </strong><?= ($expense->getExpenseDate());  ?></p>
+                        <?php if (!empty($expense->getNotes())): ?>
+                            <p><strong>Notatka: </strong><?= ($expense->getNotes());  ?></p>
+                        <?php endif; ?>
                     </div>
+
                 <?php endforeach; ?>
 
             </section>
@@ -62,17 +67,13 @@
     </div>
 </body>
 
-<template id="trip-template">
-    <div class="trip-flip-card">
-        <div class="trip-flip-card-inner">
-            <div class="trip-flip-card-front">
-                <img src="" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
-            </div>
-            <div class="trip-flip-card-back">
-                <h1>title</h1>
-                <p id="dates">start_date - end_date</p>
-                <button id="more-info">Więcej informacji</button>
-            </div>
-        </div>
+<template id="expense-card-template">
+    <div class="expense-card">
+        <p><strong>Państwo: </strong>country</p>
+        <p><strong>Kwota: </strong>amount + currency </p>
+        <p><strong>Kategoria: </strong>category</p>
+        <p><strong>Data wydatku: </strong>data</p>
+        <p><strong>Notatka: </strong>notes</p>
     </div>
 </template>
+

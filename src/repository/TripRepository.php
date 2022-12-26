@@ -63,13 +63,14 @@ class TripRepository extends Repository{
                 $trip["start_date"],
                 $trip["end_date"],
                 $trip["image"],
-                $trip["target_currency"]
+                $trip["target_currency"],
+                $trip["id_trip"]
             );
         }
         return $result;
     }
 
-    public function getProjectByTitle(string $searchString)
+    public function getTripByTitle(string $searchString)
     {
         $searchString = "%".strtolower($searchString)."%";
 

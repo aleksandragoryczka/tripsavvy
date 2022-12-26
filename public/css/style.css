@@ -74,7 +74,7 @@ button:hover, .nav-button:hover{
 
 
 
-input{
+input, textarea{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black;
@@ -281,19 +281,22 @@ main{
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-
   
   .trip-flip-card-front {
     color: #3c4245;
   }
+
+  .expense-card, .trip-flip-card-back{
+      background-color: #719192;
+      border: 2px solid #3c4245;
+      border-radius: 36px;
+      color: black;
+      font-family:'Gill Sans';
+      text-align: center;
+  }
   
 .trip-flip-card-back {
-    background-color: #719192;
-      border: 2px solid #3c4245;
-    border-radius: 36px;
-    color: black;
-    font-family:'Gill Sans';
-    text-align: center;
+
     transform: rotateY(180deg);
   }
 
@@ -317,6 +320,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 3em;
 }
 
 .add-trip > form{
@@ -357,5 +361,24 @@ main{
     text-align: center;
     transition: color .2s ease-in-out;
 }
+
+/* --------- ADD NEW EXPENSE ------------ */
+
+.new-expense{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 3em;
+    gap: 3em;
+}
+
+/* ------------- ALL TRIP EXPENSES LAYOUT ----------- */
+
+.expenses{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1em;
+    gap: 1em;
+}
+
 
 

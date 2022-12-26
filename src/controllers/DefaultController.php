@@ -13,4 +13,8 @@ class DefaultController extends AppController{
         $this->render('register');
     }
 
+    public function selectTripInfo(){
+        $this->render('');
+    }
+
 }
