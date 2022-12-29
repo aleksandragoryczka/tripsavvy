@@ -14,13 +14,14 @@ function createTrip(trip) {
     const startDate = trip.start_date;
     const endDate = trip.end_date;
     dates.innerText = startDate + " - " + endDate;
+    //const id = clone.querySelector("#trip-id");
+    //id.innerHTML = trip.id_trip;
 
     tripsContainer.appendChild(clone);
 }
 
 function loadTrips(trips) {
     trips.forEach(trip => {
-        console.log(trip)
         createTrip(trip);
     });
 }
@@ -30,6 +31,7 @@ search.addEventListener("keyup", function (event){
         event.preventDefault();
 
         const data = {search: this.value};
+        console.log(data);
 
         fetch("/search", {
             method: "POST",
@@ -38,6 +40,7 @@ search.addEventListener("keyup", function (event){
             },
             body: JSON.stringify(data)
         }).then(function(response){
+            console.log(response);
             return response.json();
         }).then(function (trips){
             tripsContainer.innerHTML = "";

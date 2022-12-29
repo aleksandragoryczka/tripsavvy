@@ -4,10 +4,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
     <script src="https://kit.fontawesome.com/e076f466c1.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
-    <title>PODRÓŻE</title>
+    <script type="text/javascript" src="./public/js/button_expenses.js" defer></script>
+
+    <title>WYDATKI</title>
 </head>
 
-<body>
+<body id="body">
     <div class="container-trip-summary-page">
         <nav>
             <a href="trips">

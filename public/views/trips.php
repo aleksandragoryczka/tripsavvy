@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
     <script src="https://kit.fontawesome.com/e076f466c1.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/button_expenses.js" defer></script>
     <title>PODRÓŻE</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
                           <div class="trip-flip-card-back">
                             <h1><?= ($trip->getTitle()); ?></h1>
                             <p><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
-                              <button id="more-info">Więcej informacji</button>
+                              <button id_button='more-info'>Więcej informacji</button>
                           </div>
                         </div>
                     </div>
@@ -63,7 +64,7 @@
 </body>
 
 <template id="trip-template">
-    <div class="trip-flip-card">
+    <div class="trip-flip-card" id="trip-id">
         <div class="trip-flip-card-inner">
             <div class="trip-flip-card-front">
                 <img src="" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
@@ -71,7 +72,7 @@
             <div class="trip-flip-card-back">
                 <h1>title</h1>
                 <p id="dates">start_date - end_date</p>
-                <button id="more-info">Więcej informacji</button>
+                <button id_button="more-info">Więcej informacji</button>
             </div>
         </div>
     </div>

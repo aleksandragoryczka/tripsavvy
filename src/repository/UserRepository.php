@@ -63,6 +63,7 @@ class UserRepository extends Repository{
         $stmt->execute();
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo $data['id'];
         return $data['id'];
     }
 

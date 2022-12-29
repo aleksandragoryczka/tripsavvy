@@ -17,6 +17,6 @@ Routing::post('register', 'SecurityController');
 Routing::post('search', 'TripsController');
 
 Routing::post('addExpense', 'ExpenseController');
-
+Routing::post('expenses', 'ExpenseController');
 
 Routing::run($path);
