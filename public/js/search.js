@@ -1,5 +1,6 @@
 const search = document.querySelector('input[placeholder="Wyszukaj celu podróży"]')
 const tripsContainer = document.querySelector(".trips");
+const allTripSelectButtons = document.querySelectorAll(".more-info-button");
 
 function createTrip(trip) {
     const template = document.querySelector("#trip-template");
@@ -16,19 +17,19 @@ function createTrip(trip) {
     const endDate = trip.end_date;
     dates.innerText = startDate + " - " + endDate;
 
-    console.log(dates);
-
-    //const startDate = clone.querySelector("#start-date");
-    //startDate.innerText = trip.start_date;
-    //const endDate = clone.querySelector("#end-date");
-    //endDate.innerText = trip.end_date;
+    const tripSelectButton = clone.querySelector(".more-info-button");
+    tripSelectButton.addEventListener("click",() => goToTrip(trip.id_trip));
 
     tripsContainer.appendChild(clone);
 }
 
+function goToTrip(id){
+    window.location.href = "../trips?id_trip=" + id;
+    console.log("tutaj");
+}
+
 function loadTrips(trips) {
     trips.forEach(trip => {
-        console.log(trip);
         createTrip(trip);
     });
 }
@@ -53,3 +54,11 @@ search.addEventListener("keyup", function (event){
         });
     }
 });
+
+allTripSelectButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        console.log("klik");
+    });
+});
+
+

@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Trip.php';
 require_once __DIR__.'/../repository/TripRepository.php';
+require_once __DIR__.'/../repository/ExpenseRepository.php';
 
 class TripsController extends AppController
 {
@@ -17,11 +18,21 @@ class TripsController extends AppController
     {
         parent::__construct();
         $this->tripRepository = new TripRepository();
+        $this->expenseRepository = new ExpenseRepository();
     }
 
     public function trips(){
-        $trips = $this->tripRepository->getAllTrips();
-        $this->render('trips', ['trips' => $trips]);
+
+        if(!isset($_GET['id_trip'])){
+            return $this->render('trips');
+        }
+
+        $selectTrip = $this->tripRepository->getTrip($_GET['id_trip']);
+
+        //$trips = $this->tripRepository->getAllTrips($selectTrip->getIdTrip());
+
+        $expensesForTrip = $this->expenseRepository->getExpensesViaTrip($selectTrip->getIdTrip());
+        $this->render('expenses', ['expenses' => $expensesForTrip]);
     }
 
     public function addTrip(){
@@ -54,7 +65,7 @@ class TripsController extends AppController
             header('Content-type: application/json');
             http_response_code(200);
 
-            echo json_encode($this->tripRepository->getProjectByTitle($decoded['search']));
+            echo json_encode($this->tripRepository->getTripByTitle($decoded['search']));
         }
     }
 
@@ -69,6 +80,19 @@ class TripsController extends AppController
             return false;
         }
         return true;
+    }
+
+    public function addExpense(){
+        if($this->isPost()){
+            $expense = new Expense($_POST['country'], $_POST['amount'], $_POST['expense_currency'], $_POST['category'], $_POST['expense_date'], $_POST['notes']);
+            $this->expenseRepository->addExpense($expense);
+
+            return $this->render("expenses", [
+                "messages" => $this->messages,
+                "expenses" => $this->expenseRepository->getAllTripExpenses(1)
+            ]);
+        }
+        $this->render("add-expense",  ["messages" => $this->messages]);
     }
 
 }

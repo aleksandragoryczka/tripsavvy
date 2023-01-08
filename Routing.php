@@ -27,8 +27,10 @@ class Routing{
 
         $controller = self::$routes[$action];
         $object = new $controller;
+
         $action = $action ?: 'index';
 
+        //$action = str_replace("-", "", $action);
         $object->$action();
         
     }

@@ -9,12 +9,17 @@
 <body>
     <div class="container-trip-summary-page">
         <nav>
-            <div class="logo">
-                <img src="public/img/logo.svg">
-            </div>
+            <a href="trips">
+                <div class="logo">
+                    <img src="public/img/logo.svg">
+                </div>
+            </a>
             <ul>
+                <li>
+                    <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
+                </li>
                 <li>              
-                    <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
+                    <a href="addTrip" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
                 </li>
                 <li>
                     
@@ -27,7 +32,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
+                    <a href="login" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
                 </li>
             </ul>
         </nav>
@@ -47,16 +52,13 @@
                           <div class="trip-flip-card-back">
                             <h1><?= ($trip->getTitle()); ?></h1>
                             <p><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
-                            <button>Więcej informacji</button>
+                            <button class=more-info-button">Więcej informacji</button>
                           </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
 
             </section>
-            <div class="all-trips">
-                <a href="#">See your all trips </a>
-            </div>
         </main>
     </div>
 </body>
@@ -70,7 +72,7 @@
             <div class="trip-flip-card-back">
                 <h1>title</h1>
                 <p id="dates">start_date - end_date</p>
-                <button>Więcej informacji</button>
+                <button class="more-info-button">Więcej informacji</button>
             </div>
         </div>
     </div>

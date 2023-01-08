@@ -5,12 +5,12 @@ require_once __DIR__."/../models/Trip.php";
 
 class TripRepository extends Repository{
 
-    public function getTrip(int $id): ?Trip
+    public function getTrip(int $id_trip)
     {
         $stmt = $this->database->connect()->prepare("
-            SELECT * FROM public.users WHERE id = :id
+            SELECT * FROM public.trips WHERE id_trip = :id_trip
             ");
-        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->bindParam(":id_trip", $id_trip, PDO::PARAM_INT);
         $stmt->execute();
 
         $trip = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +23,8 @@ class TripRepository extends Repository{
             $trip['start_date'],
             $trip['end_date'],
             $trip['image'],
-            $trip['target_currency']
+            $trip['target_currency'],
+            $trip['id_trip']
         );
     }
 
@@ -63,13 +64,14 @@ class TripRepository extends Repository{
                 $trip["start_date"],
                 $trip["end_date"],
                 $trip["image"],
-                $trip["target_currency"]
+                $trip["target_currency"],
+                $trip["id_trip"]
             );
         }
         return $result;
     }
 
-    public function getProjectByTitle(string $searchString)
+    public function getTripByTitle(string $searchString)
     {
         $searchString = "%".strtolower($searchString)."%";
 
