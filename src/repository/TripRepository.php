@@ -24,7 +24,8 @@ class TripRepository extends Repository{
             $trip['end_date'],
             $trip['image'],
             $trip['target_currency'],
-            $trip['id_trip']
+            $trip['id_trip'],
+            $trip['sum_of_expenses']
         );
     }
 
@@ -65,7 +66,8 @@ class TripRepository extends Repository{
                 $trip["end_date"],
                 $trip["image"],
                 $trip["target_currency"],
-                $trip["id_trip"]
+                $trip["id_trip"],
+                $trip['sum_of_expenses']
             );
         }
         return $result;

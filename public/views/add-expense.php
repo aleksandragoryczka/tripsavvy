@@ -6,47 +6,9 @@
 </head>
 <body>
 <div class="container-trip-summary-page">
-    <nav>
-        <div class="logo">
-            <img src="public/img/logo.svg">
-        </div>
-        <ul>
-            <li>
-                <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
-            </li>
-            <li>
-                <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
-            </li>
-            <li>
-                <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input placeholder="Wyszukaj celu podróży">
-                </div>
-            </li>
-            <li>
-                <a href="login" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
-            </li>
-        </ul>
-    </nav>
-
+    <?php include("navbar.php"); ?>
     <main>
-        <section class="new-expense">
-            <div class="single-trip">
-                <div class="trip-flip-card">
-                    <div class="trip-flip-card-inner">
-                        <div class="trip-flip-card-front">
-                            <img src="public/uploads/" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
-                        </div>
-                        <div class="trip-flip-card-back">
-                            <h1>title</h1>
-                            <p> daty </p>
-                        </div>
-                    </div>
-                </div>
-                <h1>suma wydatków</h1>
-            </div>
-
-            <div class="add-expense">
+            <div class="add-trip">
                 <form action="addExpense" method="POST">
                     <?php if(isset($messages)){
                         foreach ($messages as $message){
@@ -55,9 +17,25 @@
                     }
                     ?>
                     <h1>DODAJ WYDATEK</h1>
-                    <input name="country" type="text" placeholder="Państwo" >
+                    <div class="dropdown-menu">
+                        <label for="titles">Wybierz podróż: </label>
+                        <select id="trip-titles" name="titles" required>
+                            <?php $tmp = new TripRepository();
+                            $trips = $tmp->getAllTrips();
+                            foreach($trips as $trip): ?>
+                                <option name=<?= $trip->getTitle(); ?>><?= $trip->getTitle(); ?></option>
+                              <!--  <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option> -->
+
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <input name="place" type="text" placeholder="Miejsce">
                     <input name="amount" type="text" placeholder="Kwota">
-                    <input name="expense_currency" type="text" placeholder="Waluta">
+                   <!-- <input name="expense_currency" type="text" placeholder="Waluta"> -->
                     <input name="category" type="text" placeholder = "Kategoria" >
                     <input type="text" name="expense_date" placeholder="Data" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
                     <textarea name="notes" rows="4" placeholder="Notatki"></textarea>
@@ -65,8 +43,6 @@
                     <button type="submit">Dodaj wydatek</button>
                 </form>
             </div>
-
-        </section>
     </main>
 </div>
 

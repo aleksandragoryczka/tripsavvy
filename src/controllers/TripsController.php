@@ -29,10 +29,15 @@ class TripsController extends AppController
 
         $selectTrip = $this->tripRepository->getTrip($_GET['id_trip']);
 
+        //echo $selectTrip->getIdTrip();
         //$trips = $this->tripRepository->getAllTrips($selectTrip->getIdTrip());
 
         $expensesForTrip = $this->expenseRepository->getExpensesViaTrip($selectTrip->getIdTrip());
-        $this->render('expenses', ['expenses' => $expensesForTrip]);
+        $this->render('expenses', [
+            'trip' => $selectTrip,
+            'expenses' => $expensesForTrip
+
+        ]);
     }
 
     public function addTrip(){
@@ -43,7 +48,7 @@ class TripsController extends AppController
             );
 
             //TODO: zmienić sposób pobierania target_currency na z listy rozwijanej (?)
-            $trip = new Trip($_POST['title'], $_POST["start-date"], $_POST["end-date"], $_FILES['file']['name'], "PLN");
+            $trip = new Trip($_POST['title'], $_POST["start-date"], $_POST["end-date"], $_FILES['file']['name'], $_POST['target-currency']);
             $this->tripRepository->addTrip($trip);
 
             return $this->render("trips", [
@@ -83,13 +88,24 @@ class TripsController extends AppController
     }
 
     public function addExpense(){
-        if($this->isPost()){
-            $expense = new Expense($_POST['country'], $_POST['amount'], $_POST['expense_currency'], $_POST['category'], $_POST['expense_date'], $_POST['notes']);
-            $this->expenseRepository->addExpense($expense);
+        if($this->isPost()) {
+
+
+            $titleSelected = $_POST['titles'];
+            $trips = $this->tripRepository->getTripByTitle($titleSelected);
+            $trip_id = $trips[0]['id_trip'];
+            //$selectTrip = $this->tripRepository->getTrip($trip_id);
+
+            $expense = new Expense($_POST['place'], $_POST['amount'], $_POST['category'], $_POST['expense_date'], $_POST['notes']);
+            $this->expenseRepository->addExpense($expense, $trip_id);
+
+
+            //$expensesForTrip = $this->expenseRepository->getExpensesViaTrip($selectTrip->getIdTrip());
 
             return $this->render("expenses", [
+                'trip' => $this->tripRepository->getTrip($trip_id),
                 "messages" => $this->messages,
-                "expenses" => $this->expenseRepository->getAllTripExpenses(1)
+                "expenses" => $this->expenseRepository->getAllTripExpenses($trip_id)
             ]);
         }
         $this->render("add-expense",  ["messages" => $this->messages]);

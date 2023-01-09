@@ -8,49 +8,23 @@
     <title>WYDATKI</title>
 </head>
 
-<body id="body">
+<body>
 <div class="container-trip-summary-page">
-    <nav>
-        <a href="trips">
-            <div class="logo">
-                <img src="public/img/logo.svg">
-            </div>
-        </a>
-        <ul>
-            <li>
-                <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
-            </li>
-            <li>
-                <a href="addTrip" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
-            </li>
-            <li>
-
-                <a href="addExpense" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
-            </li>
-            <li>
-                <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input placeholder="Wyszukaj celu podróży">
-                </div>
-            </li>
-            <li>
-                <a href="login" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
-            </li>
-        </ul>
-    </nav>
-
+    <?php include("navbar.php"); ?>
     <main>
-        <header>
-            <div class="trip-expenses-header">
-
-            </div>
+        <header class="trip-expenses-header">
+            <?php if(isset($trip)): ?>
+                <h1><strong><?= ($trip->getTitle()); ?></strong></h1>
+                <p><strong>Data: </strong><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
+                <p><strong>Suma wydatków: </strong><?= ($trip->getSumOfExpenses()."   ".$trip->getTargetCurrency()) ?></p>
+                <a href="addExpense" class="nav-button"><i class="fa-solid fa-dollar-sign"></i>  Dodaj wydatek</a>
+            <?php endif; ?>
         </header>
-
         <section class="expenses">
             <?php if(isset($expenses)) foreach($expenses as $expense): ?>
                 <div class="expense-card">
-                    <p><strong>Państwo: </strong><?= ($expense->getCountry());  ?></p>
-                    <p><strong>Kwota: </strong><?= ($expense->getAmount());  ?> </p>
+                    <p><strong>Miejsce: </strong><?= ($expense->getPlace());  ?></p>
+                    <p><strong>Kwota: </strong><?= ($expense->getAmount()); ?> </p>
                     <p><strong>Kategoria: </strong><?= ($expense->getCategory());  ?></p>
                     <p><strong>Data wydatku: </strong><?= ($expense->getExpenseDate());  ?></p>
                     <?php if (!empty($expense->getNotes())): ?>
@@ -58,18 +32,7 @@
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
-
         </section>
     </main>
 </div>
 </body>
-
-<template id="expense-card-template">
-    <div class="expense-card">
-        <p><strong>Państwo: </strong>country</p>
-        <p><strong>Kwota: </strong>amount + currency </p>
-        <p><strong>Kategoria: </strong>category</p>
-        <p><strong>Data wydatku: </strong>data</p>
-        <p><strong>Notatka: </strong>notes</p>
-    </div>
-</template>

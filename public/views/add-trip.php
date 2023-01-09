@@ -6,30 +6,7 @@
 </head>
 <body>
     <div class="container-trip-summary-page">
-        <nav>
-            <div class="logo">
-                <img src="public/img/logo.svg">
-            </div>
-            <ul>
-                <li>
-                    <a href="#" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
-                </li>
-                <li>
-
-                    <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
-                </li>
-                <li>
-                    <div class="search-bar">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input placeholder="Wyszukaj celu podróży">
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
-                </li>
-            </ul>
-        </nav>
-        
+        <?php include("navbar.php"); ?>
         <main> 
             <section class="add-trip">
                 <form action="addTrip" method="POST" ENCTYPE="multipart/form-data">
@@ -44,8 +21,7 @@
 
                     <input type="text" name="start-date" placeholder="Początek podróży" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
                     <input type="text" name="end-date" placeholder="Zakończenie podróży" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
-
-
+                    <input name="target-currency" type="text" placeholder="Waluta">
 
                     <label for="images" class="drop-container">
                         <span class="drop-title">Upuść zdjęcie tutaj</span>
@@ -56,10 +32,6 @@
                     <button type="submit">Dodaj</button>
                 </form>
             </section>
-            <div class="all-trips">
-                <a href="#">See your all trips </a>
-            </div>
         </main>
     </div>
-
 </body>

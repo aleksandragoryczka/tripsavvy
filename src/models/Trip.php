@@ -6,8 +6,10 @@ class Trip{
     private $end_date;
     private $image;
     private $target_currency;
+    private $id_trip;
+    private $sum_of_expenses;
 
-    public function __construct($title, $start_date, $end_date, $image, $target_currency, $id_trip)
+    public function __construct($title, $start_date, $end_date, $image, $target_currency, $id_trip=null, $sum_of_expenses=0)
     {
         $this->title = $title;
         $this->start_date = $start_date;
@@ -15,6 +17,7 @@ class Trip{
         $this->image = $image;
         $this->target_currency=$target_currency;
         $this->id_trip=$id_trip;
+        $this->sum_of_expenses=$sum_of_expenses;
     }
 
     public function getIdTrip()
@@ -22,7 +25,10 @@ class Trip{
         return $this->id_trip;
     }
 
-
+    public function getSumOfExpenses()
+    {
+        return $this->sum_of_expenses;
+    }
 
     //TODO: reszta niepotrzebna (?)
 
@@ -35,8 +41,6 @@ class Trip{
     {
         $this->target_currency = $target_currency;
     }
-
-
 
     public function getTitle() :string
     {

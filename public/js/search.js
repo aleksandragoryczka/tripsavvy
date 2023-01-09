@@ -1,6 +1,5 @@
 const search = document.querySelector('input[placeholder="Wyszukaj celu podróży"]')
 const tripsContainer = document.querySelector(".trips");
-const allTripSelectButtons = document.querySelectorAll(".more-info-button");
 
 function createTrip(trip) {
     const template = document.querySelector("#trip-template");
@@ -54,11 +53,13 @@ search.addEventListener("keyup", function (event){
         });
     }
 });
-
+/*
 allTripSelectButtons.forEach(button => {
     button.addEventListener("click", () => {
-        console.log("klik");
+        goToTrip(tri);
     });
-});
+});*/
+
+
 
 

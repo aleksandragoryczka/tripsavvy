@@ -21,8 +21,7 @@
                     }
                     ?>
                 </div>
-                <h1>Register</h1>
-                <h2>Please fill in this form to create an account:</h2>
+                <h2>Uzupełnij formularz:</h2>
                 <input name="email" type="text" placeholder="Adres e-mail" required>
                 <input name="password" type="password" placeholder="Hasło" required>
                 <input name="confirmedPassword" type="password" placeholder="Powtórz hasło" required>
@@ -31,7 +30,7 @@
                 <button class="button">Zarejestruj się</button>
             </form>
             <div class="container-signin">
-                <p>Masz już konto? <a href="#">Zaloguj się</a></p>
+                <p>Masz już konto? <a href="login">Zaloguj się</a></p>
             </div>
         </div>
     </div>

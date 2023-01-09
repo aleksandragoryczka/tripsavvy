@@ -17,12 +17,12 @@ class ExpenseRepository extends Repository{
 
         foreach ($expenses as $expense){
             $result[] = new Expense(
-                $expense['country'],
+                $expense['place'],
                 $expense['amount'],
                 $expense['category'],
                 $expense['expense_date'],
-                $expense['notes'],
-                $expense['target_currency']
+                $expense['notes']
+                //$expense['target_currency']
             );
         }
         return $result;
@@ -42,15 +42,34 @@ class ExpenseRepository extends Repository{
 
         foreach ($expenses as $expense){
             $result[] = new Expense(
-                $expense['country'],
+                $expense['place'],
                 $expense['amount'],
-                $expense['expense_currency'],
                 $expense['category'],
                 $expense['expense_date'],
                 $expense['notes']
+                //$expense['target_currency']
             );
         }
         return $result;
     }
 
+
+    public function addExpense(Expense $expense, int $id_trip): void{
+        $stmt = $this->database->connect()->prepare(
+            "insert into single_expenses(id_trip, place, amount, category, expense_date, notes)
+                    values (?,?,?,?,?,?)
+                    ");
+
+        //TODO: pobranie tej wartosci na podstawie sesji zalogowanego uzytkownika, tak aby zwrocic to ID sesji lub pobrane z bazy danych na podstawie tokenu sesji zpaisnaego w db
+        //$id_trip = 1;
+
+        $stmt->execute([
+            $id_trip,
+            $expense->getPlace(),
+            $expense->getAmount(),
+            $expense->getCategory(),
+            $expense->getExpenseDate(),
+            $expense->getNotes()
+        ]);
+    }
 }

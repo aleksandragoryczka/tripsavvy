@@ -24,7 +24,8 @@
                 <input name="email" type="text" placeholder="Podaj adres e-mail" required>
                 <input name="password" type="password" placeholder="Podaj hasło" required>
                 <button type="submit">Zaloguj się</button>
-                <button>Zarejestruj się</button>
+                <button><a href="register">Zarejestruj się</a></button>
+                <!-- <a href="register" class="nav-button">Zarejestruj się</a>  -->
             </form>
         </div>
     </div>
