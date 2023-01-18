@@ -9,7 +9,7 @@ class ExpenseRepository extends Repository{
         $result = [];
 
         $stmt = $this->database->connect()->prepare(
-            "SELECT * from all_trip_expenses_vw a WHERE id_trip = :id_trip"
+            "SELECT * from single_expenses WHERE id_trip = :id_trip"
         );
         $stmt->bindParam(":id_trip", $id_trip, PDO::PARAM_INT);
         $stmt->execute();

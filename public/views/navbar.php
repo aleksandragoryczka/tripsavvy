@@ -6,6 +6,9 @@
             </a>
             <ul>
                 <li>
+                    <h1>Cześć + imie!</h1>
+                </li>
+                <li>
                     <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
                 </li>
                 <li>
