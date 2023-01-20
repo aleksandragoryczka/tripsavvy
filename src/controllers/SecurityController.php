@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../repository/SessionRepository.php';
 
 class SecurityController extends AppController
 {
@@ -37,6 +38,8 @@ class SecurityController extends AppController
             return $this->render('login', ['messages'=> ['Niepoprawne hasło!']]);
         }
 
+        $this->createLoginCookies($user);
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/trips");
     }
@@ -62,5 +65,34 @@ class SecurityController extends AppController
         $this->userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['Rejestracja zakończona sukcesem!']]);
+    }
+
+    public function logout(){
+        if(!isset($_COOKIE['session'])){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/trips");
+        }
+
+        $session_repository = new SessionRepository();
+        $session_guid = $_COOKIE['session'];
+        $session_repository->deleteSession($session_guid);
+        $this->clearCookies();
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
+    }
+
+
+    private function createLoginCookies(User $user){
+        //TODO: dodac rózne role (?)
+       // echo $user->getId();
+        $sessionRepository = new SessionRepository();
+        $userRepository = new UserRepository();
+
+        $guid = $sessionRepository->createSession($userRepository->getUserDetailsId($user));
+        $cookie_name = "session";
+        $cookie_value = $guid;
+        $time = time() + (86400 * 30);
+        setcookie($cookie_name, $cookie_value, $time, "/");
     }
 }

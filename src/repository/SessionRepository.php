@@ -4,12 +4,11 @@ require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
 
 
-class SessionRepository
+class SessionRepository extends Repository
 {
     public function createSession(int $user_id): string
     {
         $conn = $this->database->connect();
-        $conn->beginTransaction();
 
         $stmt = $conn->prepare('DELETE FROM sessions WHERE "user_id" = :user_id');
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -22,7 +21,6 @@ class SessionRepository
             $guid
         ]);
 
-        $conn->commit();
         return $guid;
     }
 
@@ -42,14 +40,6 @@ class SessionRepository
             DELETE FROM sessions WHERE "sessionGUID" = :guid
         ');
         $stmt->bindParam(':guid', $sessionGUID, PDO::PARAM_STR);
-        $stmt->execute();
-    }
-    public function deleteOldSessions() {
-        $time = time() - (86400 * 30);
-        $stmt = $this->database->connect()->prepare('
-            DELETE FROM sessions WHERE "dateGenerated" < to_timestamp(:time)
-        ');
-        $stmt->bindParam(':time', $time, PDO::PARAM_INT);
         $stmt->execute();
     }
 

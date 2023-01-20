@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/mediastyle.css">
     <script type="text/javascript" src="./public/js/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

@@ -11,6 +11,7 @@ Routing::get('expenses', 'TripsController');
 
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
+Routing::post('logout', 'SecurityController');
 Routing::post('addTrip', 'TripsController');
 Routing::post('search', 'TripsController');
 Routing::post('addExpense', 'TripsController');

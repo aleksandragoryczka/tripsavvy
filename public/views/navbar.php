@@ -4,10 +4,11 @@
                     <img src="public/img/logo.svg">
                 </div>
             </a>
-            <ul>
-                <li>
-                    <h1>Cześć + imie!</h1>
-                </li>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul class="menu">
                 <li>
                     <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
                 </li>
@@ -18,17 +19,7 @@
                     <a href="addExpense" class="nav-button"><i class="fa-solid fa-dollar-sign"></i>  Dodaj wydatek</a>
                 </li>
                 <li>
-
-                    <a href="#" class="nav-button"><i class="fa-solid fa-map-location-dot"></i> Mapa</a>
-                </li>
-                <li>
-                    <div class="search-bar">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input placeholder="Wyszukaj celu podróży">
-                    </div>
-                </li>
-                <li>
-                    <a href="login" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
+                    <a href="logout" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
                 </li>
             </ul>
         </nav>

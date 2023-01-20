@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/mediastyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/e076f466c1.js" crossorigin="anonymous"></script>
     <title>DODAWANIE WYDATKU</title>
 </head>
@@ -24,11 +26,6 @@
                             $trips = $tmp->getAllTrips();
                             foreach($trips as $trip): ?>
                                 <option name=<?= $trip->getTitle(); ?>><?= $trip->getTitle(); ?></option>
-                              <!--  <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="fiat">Fiat</option>
-                                <option value="audi">Audi</option> -->
-
                             <?php endforeach; ?>
                         </select>
                     </div>

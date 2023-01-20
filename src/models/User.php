@@ -20,20 +20,9 @@ class User
         return $this->name;
     }
 
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
     public function getSurname(): string
     {
         return $this->surname;
-    }
-
-    public function setSurname(string $surname): void
-    {
-        $this->surname = $surname;
     }
 
     public function getEmail(): string
@@ -41,22 +30,8 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email)
-    {
-        $this->email = $email;
-    }
-
     public function getPassword(): string
     {
         return $this->password;
     }
-
-
-    public function setPassword(string $password)
-    {
-        $this->password = $password;
-    }
-
-
-
 }

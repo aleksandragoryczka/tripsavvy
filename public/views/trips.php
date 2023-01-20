@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css?v=<%= DateTime.Now.Ticks %>">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/mediastyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/e076f466c1.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>PODRÓŻE</title>
 </head>
 <body>
     <div class="container-trip-summary-page">
-        <?php include("navbar.php"); ?>
+        <nav>
+            <a href="trips">
+                <div class="logo">
+                    <img src="public/img/logo.svg">
+                </div>
+            </a>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul class="menu">
+                <li>
+                    <a href="trips" class="nav-button"><i class="fa-solid fa-plane"></i>  Twoje podróże</a>
+                </li>
+                <li>
+                    <a href="addTrip" class="nav-button"><i class="fa-solid fa-plus"></i>  Dodaj podróż</a>
+                </li>
+                <li>
+                    <a href="addExpense" class="nav-button"><i class="fa-solid fa-dollar-sign"></i>  Dodaj wydatek</a>
+                </li>
+                <li>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input placeholder="Wyszukaj celu podróży">
+                    </div>
+                </li>
+                <li>
+                    <a href="logout" class="nav-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Wyloguj się</a>
+                </li>
+            </ul>
+        </nav>
         
         <main> 
             <section class="trips">
