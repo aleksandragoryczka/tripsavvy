@@ -295,7 +295,7 @@ main{
     transition: color .2s ease-in-out;
 }
 
-/* ------------- ALL TRIP EXPENSES LAYOUT ----------- */
+/* ------------- ALL TRIPS EXPENSES LAYOUT ----------- */
 
 .expenses{
     display: grid;
@@ -313,8 +313,7 @@ main{
     border-bottom: 2px solid #000;
 }
 
-
-@media only screen and (max-width: 420px){
+@media only screen and (max-width: 410px){
     .container{
         flex-direction: column;
         min-width: 340px;
@@ -322,6 +321,10 @@ main{
 
     *{
         font-size: 25px;
+    }
+
+    main{
+        z-index: 5;
     }
 
     .login-container, .logo, .register-container{
@@ -379,7 +382,6 @@ main{
 
     .trips{
         grid-template-columns: repeat(1, 1fr);
-        overflow: auto;
         justify-content: center;
     }
 
@@ -455,8 +457,8 @@ main{
         width: 100%;
         justify-content: center;
         align-items: center;
-        z-index: 100;
     }
+
 
     #menu-toggle ~ .menu li {
         height: 0;
@@ -464,13 +466,18 @@ main{
         padding: 0;
         border: 0;
         transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
     }
 
     #menu-toggle:checked ~ .menu li {
         height: 3em;
         transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    
+
+    #menu-toggle:checked ~.menu{
+        z-index: 10;
+    }
+
     li:last-child{
         position: relative;
     }
@@ -484,7 +491,47 @@ main{
         background-color: #719192;
         overflow: hidden;
     }
+
+    /* ----------- ALL EXPENSES VIEW --------- */
+
+    .expenses{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0.5em;
+        gap: 0.5em;
+    }
+
+    .trip-expenses-header{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25em;
+        border-bottom: 2px solid #000;
+    }
+
+    .trip-expenses-header strong{
+        font-size: 23px;
+    }
+
+    .trip-expenses-header p{
+        font-size: 17px;
+    }
+
+    .expense-card strong{
+        font-size: 15px;
+    }
+
+    .expense-card p{
+        font-size: 15px;
+    }
+
+    .trip-expenses-header .nav-button{
+        width: 100%;
+        font-size: 20px;
+    }
 }
+
+
+
 
 
 
