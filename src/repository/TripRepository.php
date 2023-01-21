@@ -36,8 +36,8 @@ class TripRepository extends Repository{
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                     ");
 
-        //TODO: pobranie tej wartosci na podstawie sesji zalogowanego uzytkownika, tak aby zwrocic to ID sesji lub pobrane z bazy danych na podstawie tokenu sesji zpaisnaego w db
-        $id_author = 1;
+        $session_repository = new SessionRepository();
+        $id_author = $session_repository->getSessionAuthorId();
         $stmt->execute([
             $trip->getTitle(),
             $trip->getStartDate(),
@@ -50,12 +50,14 @@ class TripRepository extends Repository{
     }
 
     public function getAllTrips(){
-        $result = [];
+        $session_repository = new SessionRepository();
+        $id = $session_repository->getSessionAuthorId();
 
         $stmt = $this->database->connect()->prepare("
-            SELECT * from public.trips
+            SELECT * from public.trips WHERE id_author = :id
         ");
 
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $trips = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

@@ -29,9 +29,6 @@ class TripsController extends AppController
 
         $selectTrip = $this->tripRepository->getTrip($_GET['id_trip']);
 
-        //echo $selectTrip->getIdTrip();
-        //$trips = $this->tripRepository->getAllTrips($selectTrip->getIdTrip());
-
         $expensesForTrip = $this->expenseRepository->getExpensesViaTrip($selectTrip->getIdTrip());
         $this->render('expenses', [
             'trip' => $selectTrip,
@@ -47,7 +44,6 @@ class TripsController extends AppController
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            //TODO: zmienić sposób pobierania target_currency na z listy rozwijanej (?)
             $trip = new Trip($_POST['title'], $_POST["start-date"], $_POST["end-date"], $_FILES['file']['name'], $_POST['target-currency']);
             $this->tripRepository->addTrip($trip);
 

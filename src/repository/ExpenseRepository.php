@@ -22,7 +22,6 @@ class ExpenseRepository extends Repository{
                 $expense['category'],
                 $expense['expense_date'],
                 $expense['notes']
-                //$expense['target_currency']
             );
         }
         return $result;

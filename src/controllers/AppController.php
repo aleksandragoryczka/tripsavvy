@@ -33,16 +33,6 @@ class AppController{
         print $output;
     }
 
-    protected function isAuthenticated(): bool
-    {
-        if (!isset($_COOKIE['session'])) {
-            return false;
-        }
-        $sessionGuid = $_COOKIE['session'];
-        $sessionRepository = new SessionRepository();
-        return $sessionRepository->sessionExists($sessionGuid);
-    }
-
     protected function clearCookies() {
         $time = time() - 30;
 

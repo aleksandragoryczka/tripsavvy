@@ -46,22 +46,25 @@
             <section class="trips">
 
                 <?php
+                if(isset($_COOKIE['session'])){
                 $tmp = new TripRepository();
                 $trips = $tmp->getAllTrips();
                 foreach($trips as $trip): ?>
                     <div class="trip-flip-card">
                         <div class="trip-flip-card-inner">
-                          <div class="trip-flip-card-front">
-                            <img src="public/uploads/<?= $trip->getImage(); ?>" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
-                          </div>
-                          <div class="trip-flip-card-back">
-                            <h1><?= ($trip->getTitle()); ?></h1>
-                            <p><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
-                            <button class="more-info-button" onclick="goToTrip(<?= $trip->getIdTrip(); ?>)">Więcej informacji</button>
-                          </div>
+                            <div class="trip-flip-card-front">
+                                <img src="public/uploads/<?= $trip->getImage(); ?>" alt="photo" style="width:300px; height:300px; border-radius: 36px;">
+                            </div>
+                            <div class="trip-flip-card-back">
+                                <h1><?= ($trip->getTitle()); ?></h1>
+                                <p><?= $trip->getStartDate() ." - ". $trip->getEndDate(); ?></p>
+                                <button class="more-info-button" onclick="goToTrip(<?= $trip->getIdTrip(); ?>)">Więcej informacji</button>
+                            </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php endforeach;
+                }?>
+
 
             </section>
         </main>

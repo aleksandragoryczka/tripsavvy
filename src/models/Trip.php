@@ -30,16 +30,9 @@ class Trip{
         return $this->sum_of_expenses;
     }
 
-    //TODO: reszta niepotrzebna (?)
-
     public function getTargetCurrency()
     {
         return $this->target_currency;
-    }
-
-    public function setTargetCurrency($target_currency): void
-    {
-        $this->target_currency = $target_currency;
     }
 
     public function getTitle() :string
@@ -47,21 +40,9 @@ class Trip{
         return $this->title;
     }
 
-    public function setTitle(string $title)
-    {
-        $this->title = $title;
-    }
-
-    //TODO: add types of returned startdate and enddate
-
-    public function getStartDate()   :string
+    public function getStartDate():string
     {
         return $this->start_date;
-    }
-
-    public function setStartDate(string $start_date)
-    {
-        $this->start_date = $start_date;
     }
 
     public function getEndDate():string
@@ -69,25 +50,8 @@ class Trip{
         return $this->end_date;
     }
 
-
-    public function setEndDate(string $end_date)
-    {
-        $this->end_date = $end_date;
-    }
-
-
     public function getImage()
     {
         return $this->image;
     }
-
-
-    public function setImage(string $image)
-    {
-        $this->image = $image;
-    }
-
-
-
-
 }

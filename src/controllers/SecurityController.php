@@ -88,8 +88,9 @@ class SecurityController extends AppController
        // echo $user->getId();
         $sessionRepository = new SessionRepository();
         $userRepository = new UserRepository();
+        $id = $userRepository->getUserDetailsId($user);
 
-        $guid = $sessionRepository->createSession($userRepository->getUserDetailsId($user));
+        $guid = $sessionRepository->createSession($id);
         $cookie_name = "session";
         $cookie_value = $guid;
         $time = time() + (86400 * 30);

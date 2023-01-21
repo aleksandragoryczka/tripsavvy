@@ -54,4 +54,16 @@ class SessionRepository extends Repository
         .substr($set_charid,16, 4).$set_hyphen
         .substr($set_charid,20,12);
     }
+
+    public function getSessionAuthorId(){
+        $sessionGUID = $_COOKIE['session'];
+        $stmt = $this->database->connect()->prepare('
+            SELECT user_id FROM sessions WHERE "sessionGUID" = :sessionGUID
+        ');
+        $stmt->bindParam(':sessionGUID', $sessionGUID, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $id = $stmt->fetch(PDO::FETCH_NUM);
+        return $id[0];
+    }
 }
