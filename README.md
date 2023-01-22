@@ -31,7 +31,7 @@ You will be able to save important dates, amount of spent money or notes about e
 
 - The user can login in his/her account or create new one.
 - The user have a preview for all trips and can choose one for read more about its expenses.
-- The user have a preview for all expenses associated with specifi travel.
+- The user have a preview for all expenses associated with specifi travel and sum of them in selected currency.
 - The user can add new trip with details like title, date of beginning, date of end, currency, image from trip.
 - The user can add expense associated with specific travel with details like place, amount of expense, category, date, extra notes.
 
