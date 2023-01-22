@@ -51,6 +51,7 @@ search.addEventListener("keyup", function (event){
             tripsContainer.innerHTML = "";
             loadTrips(trips)
         });
+
     }
 });
 
