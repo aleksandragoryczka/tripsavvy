@@ -1,6 +1,7 @@
 # Tripsavvy
 
 > Website to note down your trips and travels expenses.
+> Available version for mobile devices.
 
 ## Table of contents
 
