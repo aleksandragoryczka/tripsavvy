@@ -53,13 +53,6 @@ search.addEventListener("keyup", function (event){
         });
     }
 });
-/*
-allTripSelectButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        goToTrip(tri);
-    });
-});*/
-
 
 
 
