@@ -49,6 +49,9 @@
                 if(isset($_COOKIE['session'])){
                 $tmp = new TripRepository();
                 $trips = $tmp->getAllTrips();
+                if(is_null($trips)): ?>
+                    <h1> Dodaj swoją pierwszą wycieczkę! </h1>
+                <?php else:
                 foreach($trips as $trip): ?>
                     <div class="trip-flip-card">
                         <div class="trip-flip-card-inner">
@@ -63,6 +66,7 @@
                         </div>
                     </div>
                 <?php endforeach;
+                endif;
                 }?>
 
 
